@@ -1,0 +1,16 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.base-info span strong {
+    margin-right: 10px;
+}
+
+.base-info span {
+    margin-right: 25px;
+}
+
+.detail-info strong {
+    display: block;
+}
+
