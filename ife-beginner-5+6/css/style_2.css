@@ -1,0 +1,40 @@
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#container {
+    height: 730px;
+}
+
+#header {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    background-color: rgb(69, 152, 235);
+    box-sizing: border-box;
+    padding: 30px 40px;
+    margin-right: 20px;
+}
+
+#header h1 {
+    color: #fff;
+}
+
+#content {
+    display: inline-block;
+    height: 100%;
+}
+
+.base-info span strong {
+    margin-right: 10px;
+}
+
+.base-info span {
+    margin-right: 25px;
+}
+
+.detail-info strong {
+    display: block;
+}
