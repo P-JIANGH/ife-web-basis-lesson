@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+    <style>
+        body {
+            display: block;
+            margin: 50px auto;
+            height: 300px;
+            width: 50%;
+        }
+
+        .invalid {
+            border: 1px solid red;
+        }
+
+        .invalid-result {
+            color: red;
+        }
+    </style>
+</head>
+<body>        
+    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+    <button id="trans-btn">转化为二进制</button>
+    <p id="result">运算结果</p>
+    <script>
+
+    function dec2bin(decNumber) {
+        if (decNumber === NaN || decNumber < 0) {
+            return false;
+        } else {
+            return parseInt(decNumber + '', 2);
+        }
+    }
+
+    window.onload = function () {
+        const button = document.querySelector('#trans-btn');
+        button.onclick = function () {
+            const input = document.querySelector('#dec-number');
+            const result = document.querySelector('#result');
+            input.removeAttribute('class');
+            result.removeAttribute('class');
+            console.log(input.value);
+            let transVal = dec2bin(+input.value);
+            if (transVal !== 0 && !transVal) {
+                result.innerHTML = '运算结果： 输入一个十进制非负整数';
+                result.setAttribute('class', 'invalid-result');
+                input.setAttribute('class', 'invalid');
+            } else {
+                dec2bin(input.innerHTML);
+                result.innerHTML = `运算结果： ${transVal}`;
+            }
+        };
+    }
+
+    </script>
+</body>
+</html>
