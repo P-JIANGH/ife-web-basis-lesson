@@ -22,6 +22,7 @@
 </head>
 <body>        
     <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+    <input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数">
     <button id="trans-btn">转化为二进制</button>
     <p id="result">运算结果</p>
     <script>
@@ -30,30 +31,46 @@
         if (decNumber === NaN || decNumber < 0) {
             return false;
         } else {
-            return parseInt(decNumber + '', 2);
+            let divider = decNumber;
+            let result = [];
+            while (divider / 2 > 0) {
+                result.push(divider % 2 + '');
+                divider = Math.floor(divider / 2);
+            }
+            if (result === []) result = ['0'];
+            return result;
         }
     }
 
     window.onload = function () {
         const button = document.querySelector('#trans-btn');
         button.onclick = function () {
-            const input = document.querySelector('#dec-number');
-            const result = document.querySelector('#result');
-            input.removeAttribute('class');
-            result.removeAttribute('class');
-            console.log(input.value);
-            let transVal = dec2bin(+input.value);
-            if (transVal !== 0 && !transVal) {
-                result.innerHTML = '运算结果： 输入一个十进制非负整数';
-                result.setAttribute('class', 'invalid-result');
-                input.setAttribute('class', 'invalid');
+            const inputValue = document.querySelector('#dec-number');
+            const inputBit = document.querySelector('#bin-bit');
+            let resultLabel = document.querySelector('#result');
+            inputValue.removeAttribute('class');
+            resultLabel.removeAttribute('class');
+            let transVal = dec2bin(inputValue.valueAsNumber);
+            if (!transVal || !inputValue.validity.valid) {
+                resultLabel.innerText = '运算结果： 输入一个十进制非负整数';
+                resultLabel.setAttribute('class', 'invalid-result');
+                inputValue.setAttribute('class', 'invalid');
             } else {
-                dec2bin(input.innerHTML);
-                result.innerHTML = `运算结果： ${transVal}`;
+                let length = transVal.length;
+                if (inputBit.valueAsNumber > length) {
+                    for (let d = 0; d < inputBit.valueAsNumber - length; d++)
+                        transVal.push('0');
+                }
+                resultLabel.innerText = `运算结果： ${transVal.reduce((p, c) => p = c + p, '')}`;
             }
         };
     }
 
+    const result = [];
+    for (let val = 1; val <= 100; val++)
+        if (val % 3 === 0 || (val + '').includes('3')) result.push('PA');
+        else result.push(val + '');
+    console.log(result.join());
     </script>
 </body>
 </html>
