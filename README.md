@@ -13,3 +13,16 @@
 ## ife 第十七、第十八天作业
 
 * 二进制转换器[预览页面](https://p-jiangh.github.io/ife-web-basis-lesson/ife-beginner-17-18/index.html)
+
+## ife 第十九天作业
+
+* 基础实现[预览页面](https://p-jiangh.github.io/ife-web-basis-lesson/ife-beginner-19/findDOM-base.html)
+* querySelector实现[预览页面](https://p-jiangh.github.io/ife-web-basis-lesson/ife-beginner-19/findDOM-query.html)
+
+## ife 第二十、第二十一天作业
+
+* 练习1[预览页面](https://p-jiangh.github.io/ife-web-basis-lesson/ife-beginner-20-21/code-1.html)
+* 练习2[预览页面](https://p-jiangh.github.io/ife-web-basis-lesson/ife-beginner-20-21/code-2.html)
+* 练习3[预览页面](https://p-jiangh.github.io/ife-web-basis-lesson/ife-beginner-20-21/code-3.html)
+* 练习4[预览页面](https://p-jiangh.github.io/ife-web-basis-lesson/ife-beginner-20-21/code-4.html)
+* 练习5[预览页面](https://p-jiangh.github.io/ife-web-basis-lesson/ife-beginner-20-21/code-5.html)
