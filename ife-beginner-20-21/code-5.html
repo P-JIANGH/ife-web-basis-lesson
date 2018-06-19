@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+    <style>
+      #image {
+        width: 480px;
+        height: 480px;
+        background-repeat: no-repeat;
+        background-image: url("http://ife.baidu.com/2016/static/img/erik_ce204002.jpg");
+      }
+    </style>
+</head>
+<body>
+  <div id="image"></div>
+  <script>
+    var toggle = false;
+    setInterval(() => {
+      let y = + document.getElementById('image').style.backgroundPositionY.slice(0, -2);
+      if (y === -8160 + 480)
+        toggle = false;
+      if (y === 0)
+        toggle = true;
+      y = y + (toggle ? -480 : 480) + 'px';
+      document.getElementById('image').style.backgroundPositionY = y;
+    },100)
+  </script>
+</body>

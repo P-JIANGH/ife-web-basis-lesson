@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+<body>
+    <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+    <button id="fade-btn">淡出</button>
+    <script>
+      function clearOpacity() {
+        let opacity = document.querySelector('#fade-obj').style.opacity;
+        if (!opacity || opacity > 0) {
+          document.querySelector('#fade-btn').disabled = true;
+          opacity = (opacity === '' ? 1 : opacity) - 0.01;
+          document.querySelector('#fade-obj').style.opacity = opacity;
+          var clearhandler = setTimeout(clearOpacity, 1);
+        } else {
+          clearTimeout(clearhandler);
+          document.querySelector('#fade-btn').disabled = false;
+          document.querySelector('#fade-btn').innerText = '淡入';
+        }
+      }
+      function addOpacity() {
+        let opacity = document.querySelector('#fade-obj').style.opacity;
+        if (opacity < 1) {
+          document.querySelector('#fade-btn').disabled = true;
+          opacity = + opacity + 0.01;
+          document.querySelector('#fade-obj').style.opacity = opacity;
+          var addhandler = setTimeout(addOpacity, 1);
+        } else {
+          clearTimeout(addhandler);
+          document.querySelector('#fade-btn').disabled = false;
+          document.querySelector('#fade-btn').innerText = '淡出';
+        }
+      }
+      window.onload = function () {
+        document.querySelector('#fade-btn').addEventListener('click', e => {
+          let opacity = document.querySelector('#fade-obj').style.opacity;
+          if (!opacity || opacity === '1') {
+            clearOpacity();
+          } else {
+            addOpacity();
+          }
+        });
+      }
+    </script>
+</body>
+</html>
